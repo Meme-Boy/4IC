@@ -3,47 +3,30 @@ import java.util.concurrent.CountDownLatch;
 /**
  * Created by studente on 30/11/17.
  */
-public class Search {
+public class Search implements Runnable{
     int[] array= new int[100];
     int inizio;
-    final int ALL_THREADS = 10;
-    int[] results = new int[ALL_THREADS];
+    int fine;
+    CountdownLatch countdownLatch;
+    int[] max;
+    int index;
     int chunkSize = array.length / ALL_THREADS;
 
-
-    public int[] riempi(int array[]) {
-        for (int i = 0; i < array.length; i++){
-            int random= (int) (Math.random()*100);
-            array[i]=random;
-        }
-        return array;
-    }
-
-    public int searchMaxValue(int[] array) throws InterruptedException {
-        CountDownLatch end = new CountDownLatch(ALL_THREADS);
-        for (int i = 0; i <ALL_THREADS; i++) {
-            int sentinella = i;
-            new Thread( () -> {
-                int max = -1;
-                inizio = sentinella * chunkSize;
-                for (int j = inizio; j < inizio + chunkSize && j < array.length; j++) {
-                    if (max == -1 || max <  array[j]) {
-                        max = array[j];
-                    }
-                }
-                results[sentinella] = max;
-                end.countDown();
-            }
-            ).start();
-        }
-        end.await();
-        int max = results[0];
-        for (int k = 1; k < results.length; k++) {
-            if (max < results[k]) {
-                max = results[k];
-            }
-        }
-        System.out.printf("Max found %d%n", max);
-        return max;
+	public Search(int[] array, int inizio, int fine, CountdownLatch countdownLatch, int[] max){
+		this.array = array;
+        this.inizio = inizio;
+        this.fine = fine;
+        this.countdownLatch = countdownLatch;
+        this.max = max;
+        this.indice = indice;
+	}
+	
+	@Override
+    public void run(int[] array) throws InterruptedException {
+		massimo[indice] = array[inizio];
+		for(int i=inizio; i<fine; i++)
+            if(massimo[indice]<array[i]) massimo[indice] = array[i];
+        System.out.println("Thread:" + indice +": " + massimo[indice]);
+        countdownLatch.countDown();
     }
 }
