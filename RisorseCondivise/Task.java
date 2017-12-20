@@ -1,47 +1,47 @@
-package com.simone;
-
-import java.util.Random;
 import java.util.concurrent.Semaphore;
+import java.util.Random;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
 
-public class Task extends Thread {
-    private Semaphore semaforo;
-    private Risorse r1;
-    private Risorse r2;
-
-    public Task(Risorse r1, Risorse r2) {
-        this.r1 = r1;
-        this.r2 = r2;
-    }
-
-    public Task(Risorse r1) {
-        this(r1, null);
-    }
-
-    public void run() {
-        for (; ; ) {
-            try {
-                TimeUnit.SECONDS.sleep(new Random().nextInt(2));
-                if (r2 == null) {
-                    r1.semaforo.acquire();
-                    System.out.println(this.getName() + " usa la risorsa: " + r1.getName());
-                    TimeUnit.SECONDS.sleep(new Random().nextInt(3));
-                    r1.semaforo.release();
-                    System.out.println(this.getName() + " rilascia la risorsa: " + r1.getName());
-                }
-                else{
-                    r1.semaforo.acquire();
-                    r2.semaforo.acquire();
-                    System.out.println(this.getName() + " usa la risorsa: " + r1.getName() + " e " + r2.getName());
-                    TimeUnit.SECONDS.sleep(new Random().nextInt(3));
-                    r1.semaforo.release();
-                    r2.semaforo.release();
-                    System.out.println(this.getName() + " rilascia la risorsa: " + r1.getName() + " e " + r2.getName());
-                }
-            } catch (InterruptedException e) {
-                System.out.println(this.getName() + " terminato!");
-                break;
-            }
-        }
-    }
+public class Task implements Runnable{
+	private String name;
+	private Random random;
+	private Risorsa[] risorse;
+	
+	public Task(String name, Risorsa[] risorse){
+		this.name = name;
+		this.risorse = risorse;
+		random = new Random((new Date()).getTime());
+	}
+	
+	
+	@Override
+	public void run(){
+		int indice = 0;
+		while(indice <= risorse.length){
+			try{
+				if(indice < risorse.length){
+					System.out.println("[" + name + "]Provo ad accedere a \"" + risorse[indice].getName() + "\"");
+					risorse[indice].semaphore.acquire(); //apertura risorsa numero indice
+					System.out.println("[" + name + "]Accedo a \"" + risorse[indice].getName() + "\"");
+				}
+			} catch(InterruptedException e){
+				
+			}
+			if(indice < risorse.length && indice > 0){
+				//operazioni su entrambe le risorse apert
+				System.out.println("[" + name + "]Eseguo operazioni su \"" + risorse[indice-1].getName() + "\" e \"" + risorse[indice].getName() + "\"");
+			}			
+			if(indice > 0){
+				risorse[indice-1].semaphore.release(); //chiusura risorsa numero indice-1
+				System.out.println("[" + name + "]Chiudo \"" + risorse[indice-1].getName() + "\"");
+			}
+			if(indice < risorse.length){
+				//operazioni solo su una risorsa
+				System.out.println("[" + name + "]Eseguo operazioni su \"" + risorse[indice].getName() + "\"");
+			}
+			indice++;
+		}
+	}
 }
