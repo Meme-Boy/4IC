@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.david.cassaforte.MainActivity">
+
+    <TextView
+        android:id="@+id/testo"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="il pin è : "
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/uno"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/testo"
+        android:layout_below="@+id/testo"
+        android:layout_marginTop="43dp"
+        android:text="1" />
+
+    <Button
+        android:id="@+id/due"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/uno"
+        android:layout_toEndOf="@+id/uno"
+        android:text="2" />
+
+    <Button
+        android:id="@+id/tre"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/due"
+        android:layout_toEndOf="@+id/due"
+        android:text="3" />
+
+    <Button
+        android:id="@+id/quattro"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/uno"
+        android:layout_toStartOf="@+id/due"
+        android:text="4" />
+
+    <Button
+        android:id="@+id/cinque"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/quattro"
+        android:layout_toEndOf="@+id/quattro"
+        android:text="5" />
+
+    <Button
+        android:id="@+id/sei"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/cinque"
+        android:layout_toEndOf="@+id/cinque"
+        android:text="6" />
+
+    <Button
+        android:id="@+id/sette"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/quattro"
+        android:layout_toStartOf="@+id/cinque"
+        android:text="7" />
+
+    <Button
+        android:id="@+id/otto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/cinque"
+        android:layout_toEndOf="@+id/quattro"
+        android:text="8" />
+
+    <Button
+        android:id="@+id/nove"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/sei"
+        android:layout_toEndOf="@+id/otto"
+        android:text="9" />
+
+    <Button
+        android:id="@+id/zero"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/sette"
+        android:layout_below="@+id/sette"
+        android:text="0" />
+
+    <Button
+        android:id="@+id/canc"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/otto"
+        android:layout_toEndOf="@+id/zero"
+        android:text="DEL" />
+</android.widget.RelativeLayout>

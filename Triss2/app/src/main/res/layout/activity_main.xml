@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.david.triss2.MainActivity">
+
+
+    <ImageView
+    android:id="@+id/primo"
+    android:layout_width="117dp"
+    android:layout_height="125dp"
+        android:layout_column="0"
+        android:layout_row="0"
+    android:src="@mipmap/ic_launcher_round" />
+    <ImageView
+        android:id="@+id/secondo"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:src="@mipmap/ic_launcher_round" />
+    <ImageView
+        android:id="@+id/terzo"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/quarto"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:src="@mipmap/ic_launcher_round" />
+    <ImageView
+        android:id="@+id/quinto"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:src="@mipmap/ic_launcher_round" />
+    <ImageView
+        android:id="@+id/sesto"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:src="@mipmap/ic_launcher_round" />
+    <ImageView
+        android:id="@+id/settimo"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="0"
+        android:layout_row="2"
+
+        android:src="@mipmap/ic_launcher_round" />
+    <ImageView
+        android:id="@+id/ottavo"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:src="@mipmap/ic_launcher_round" />
+    <ImageView
+        android:id="@+id/nono"
+        android:layout_width="117dp"
+        android:layout_height="125dp"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:src="@mipmap/ic_launcher_round" />
+
+</android.widget.GridLayout>
