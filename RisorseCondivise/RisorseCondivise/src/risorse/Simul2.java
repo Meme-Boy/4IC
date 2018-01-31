@@ -15,7 +15,7 @@ public class Simul2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Risorsa[] r = new Risorsa[4];
+        Risorsa[] r = new Risorsa[2];
 		for(int i = 0; i < r.length; i++) {
 			r[i] = new Risorsa("Risorsa "+i);
 		}

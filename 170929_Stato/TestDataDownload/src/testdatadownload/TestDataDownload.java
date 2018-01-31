@@ -74,7 +74,7 @@ class Osservatore implements Runnable {
     public void run() {
         for(;;) {
             if(!stato.equals(thread.getState()))  {
-                System.out.println("State changed from "+stato+" in "+thread.getState());
+                System.out.println(thread.getName()+ ": State changed from "+stato+" in "+thread.getState());
                 stato=thread.getState();
             }
             if(stato.equals(Thread.State.TERMINATED)) break;
