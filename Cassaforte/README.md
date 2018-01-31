@@ -1,2 +1,2 @@
 # Cassaforte
-Questa app simula il funzionamento di un cassaforte.
+Questa app simula il funzionamento di una cassaforte.
