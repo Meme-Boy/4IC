@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Tris</string>
-
+    <string name="congratulations">Congratulations</string>
+    <string name="winner">You won!</string>
+    <string name="laugh">Aah!</string>
+    <string name="looser">You lost against a random generator!</string>
+    <string name="PlayAgain">Play again</string>
+    <string name="Exit">Exit game</string>
 </resources>

@@ -24,10 +24,18 @@ public class MainActivity extends AppCompatActivity {
                 pressed[pos] = true;
                 cells[pos].setText("X");
                 move();
-                if (whoWon() == "X")
-                    Toast.makeText(this, "You won", Toast.LENGTH_SHORT).show();
-                if (whoWon() == "O")
-                    Toast.makeText(this, "I won", Toast.LENGTH_SHORT).show();
+                if (whoWon() == "X"){
+                    Intent i = new Intent(this, EndGame.class);
+                    i.putExtra("winner", "X");
+                    startActivity(i);
+                    flush();
+                }
+                if (whoWon() == "O") {
+                    Intent i = new Intent(this, EndGame.class);
+                    i.putExtra("winner", "O");
+                    startActivity(i);
+                    flush();
+                }
             }
         };
         for (int i = 1; i < 10; i++) {
@@ -62,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String whoWon(){
+
+        //
         if(cells[0].getText() == cells[1].getText() && cells[1].getText() == cells[2].getText() && cells[0].getText() != "")
             return cells[0].getText().toString();
         else{
@@ -94,6 +104,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+        }
+    }
+
+    private void flush(){
+        for (int i = 0; i < 9 ; i++){
+            cells[i].setText("");
+            pressed[i] = false;
         }
     }
 
