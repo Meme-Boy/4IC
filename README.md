@@ -27,7 +27,7 @@ Nel safe troverete 3 classi la MainActivity l'Activity del Database e ListenForR
 L'esercizio consiste nel simulare una combinazione di cassaforte e fare in modo che, quando la combinazione sia giusta, accada qualcosa,
 io ho personalizzato il progetto facendo in modo che, quando l'utente immete la password giusta, possa inviare qualcosa che andrà a scrivere nell'EditText nell'Activity del Database, ad un server contenete un file txt, dove verranno scritte le informazioni mandate dall'utente.
 
-## Trsi
+## Tris
 Nel Tris troverete 2 classi la MainActivity e l'Activity del Match.
 
 L'esercizio consiste nel simulare una partita di Tris tra l'utente e la macchina che risponderà in maniera casuale.
