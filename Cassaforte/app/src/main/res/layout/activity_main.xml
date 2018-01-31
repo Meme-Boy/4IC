@@ -109,7 +109,7 @@
         android:height="70dp" />
     <Button
         android:id="@+id/buttonBack"
-        android:text="<--"
+        android:text="CE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="402dp"
