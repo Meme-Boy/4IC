@@ -1,0 +1,4 @@
+#Mon Jan 22 17:43:51 CET 2018
+base.0=C\:\\Users\\David\\Desktop\\android-master\\Triss2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
