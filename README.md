@@ -21,4 +21,15 @@ Nel risorsecondivise troverete 5 file il primo chimamato Risorse i 3 Simul e il 
 
 L'esercizio consiste nel generare un array e ordinarlo trammite l'utilizzo di thread e paragonare il tempo del sorting trammite thread con quello senza thread.
 
+## Safe
+Nel safe troverete 3 classi la MainActivity l'Activity del Database e ListenForResponse.
+
+L'esercizio consiste nel simulare una combinazione di cassaforte e fare in modo che, quando la combinazione sia giusta, accada qualcosa,
+io ho personalizzato il progetto facendo in modo che, quando l'utente immete la password giusta, possa inviare qualcosa che andrà a scrivere nell'EditText nell'Activity del Database, ad un server contenete un file txt, dove verranno scritte le informazioni mandate dall'utente.
+
+## Trsi
+Nel Tris troverete 2 classi la MainActivity e l'Activity del Match.
+
+L'esercizio consiste nel simulare una partita di Tris tra l'utente e la macchina che risponderà in maniera casuale.
+
 ![Giphy](https://media.giphy.com/media/xTiTnJ3BooiDs8dL7W/giphy.gif)
