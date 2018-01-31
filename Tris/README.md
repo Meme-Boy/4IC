@@ -1,5 +1,5 @@
 # Progetto TRIS in Android
-Creato utilizzando androi studio
+Creato utilizzando Android Studio v3.0.1
 
 ## Modalità:
 ### Computer:
