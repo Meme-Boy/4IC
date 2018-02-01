@@ -1,4 +1,4 @@
-#Sun Jan 28 12:58:01 CET 2018
-base.0=C\:\\Users\\David\\Desktop\\android-master\\Cassaforte\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\28
+#Thu Feb 01 09:24:22 CET 2018
+base.0=/home/studente/Scrivania/Cassaforte/app/build/intermediates/transforms/dexMerger/debug/28
 path.0=classes.dex
 renamed.0=classes.dex

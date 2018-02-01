@@ -45,13 +45,14 @@ public class Main2Activity extends AppCompatActivity {
 
                     startActivity(ritorno);
                 }if(newPSW.length()>4 ){
-                    manageBlinkEffect();
+                    manageBlinkEffect(newTXT);
                     Context context = getApplicationContext();
                     CharSequence text = "La nuova password è troppo lunga" ;
                     int duration = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }if(!old.equals(oldTXT.getText().toString()) ){
+                    manageBlinkEffect(oldTXT);
                     Context context = getApplicationContext();
                     CharSequence text = "Vecchia password Sbagliata" ;
                     int duration = Toast.LENGTH_LONG;
@@ -64,8 +65,8 @@ public class Main2Activity extends AppCompatActivity {
 
 
     }
-    private void manageBlinkEffect() {
-        ObjectAnimator anim = ObjectAnimator.ofInt(newTXT, "backgroundColor", Color.WHITE, Color.RED, Color.WHITE);
+    private void manageBlinkEffect(EditText txt) {
+        ObjectAnimator anim = ObjectAnimator.ofInt(txt, "backgroundColor", Color.WHITE, Color.RED, Color.WHITE);
         anim.setDuration(1500);
         anim.setEvaluator(new ArgbEvaluator());
         anim.setRepeatMode(ValueAnimator.REVERSE);
