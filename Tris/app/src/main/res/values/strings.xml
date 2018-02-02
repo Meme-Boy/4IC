@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tris</string>
+    <string name="human_vs_machine">Human vs machine</string>
+    <string name="human_vs_human">Human vs human</string>
+    <string name="is_the_winner">is the WINNER</string>
+    <string name="won_the_game">won the game</string>
+    <string name="player">Player</string>
+    <string name="player__won_the_game">Player %1$s won the game!</string>
+    <string name="rematch">Rematch</string>
+    <string name="go_to_main_menu">Go to main menu</string>
+    <string name="draw">Draw</string>
+</resources>
