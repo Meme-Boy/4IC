@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tris</string>
+    <string name="player_vs_cpu">Player VS CPU</string>
+    <string name="player_vs_player">Player VS Player</string>
 </resources>

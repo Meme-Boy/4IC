@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.obzentish.tris">
+    package="com.example.zen.tris">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -16,7 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Match"></activity>
+        <activity
+            android:name=".PVPNames"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PVPGame"
+            android:parentActivityName=".PVPNames"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PVCNames"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PVCGame"
+            android:parentActivityName=".PVCNames"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>
