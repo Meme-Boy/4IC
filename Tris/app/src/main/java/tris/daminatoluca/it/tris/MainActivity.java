@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import tris.daminatoluca.it.tris.OnlineClasses.OnlineLobbyList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onlineButton(View w){
-        w.setEnabled(false);
-        //startActivity(new Intent(this, Computer.class));
+        startActivity(new Intent(this, OnlineLobbyList.class));
     }
 }

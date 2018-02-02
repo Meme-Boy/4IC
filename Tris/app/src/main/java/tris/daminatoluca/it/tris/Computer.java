@@ -30,6 +30,8 @@ public class Computer extends AppCompatActivity {
         tris = new Tris();
 
         testo = (TextView) findViewById(R.id.testoComputer);
+
+        /*
         gridLayout = (GridLayout) findViewById(R.id.glComputer);
         for(int i=0; i<gridLayout.getRowCount(); i++){
             for(int j=0; j<gridLayout.getColumnCount(); j++){
@@ -44,6 +46,7 @@ public class Computer extends AppCompatActivity {
                 });
             }
         }
+        */
 
         turno = getIntent().getIntExtra("turno", 1);
         if(turno == 1)
@@ -67,11 +70,33 @@ public class Computer extends AppCompatActivity {
             mossaComputer();
     }
 
+    /*
     public void bottone(int row, int column){
         if(turno == 1) {
             if (tris.isLibero(row, column)) {
                 tris.setTurno(row, column, giocatore);
                 Button b = (Button) gridLayout.getChildAt(gridLayout.getColumnCount() * row + column);
+                b.setBackground(getResources().getDrawable(R.drawable.croce));
+                testo.setText(getResources().getString(R.string.eTurno) + " Computer");
+                turno = 2;
+                checkVittoria();
+            } else
+                Toast.makeText(this, getResources().getString(R.string.nonLibera), Toast.LENGTH_SHORT).show();
+        } else
+            Toast.makeText(this, getResources().getString(R.string.nonTurno), Toast.LENGTH_SHORT).show();
+    }
+    */
+
+    public void bottone(View view){
+        int row, column;
+        String id = getResources().getResourceName(view.getId());
+        id = id.substring(id.length()-3);
+        row = Integer.parseInt(id.charAt(1)+"");
+        column = Integer.parseInt(id.charAt(2)+"");
+        if(turno == 1) {
+            if (tris.isLibero(row, column)) {
+                tris.setTurno(row, column, giocatore);
+                Button b = (Button)view;
                 b.setBackground(getResources().getDrawable(R.drawable.croce));
                 testo.setText(getResources().getString(R.string.eTurno) + " Computer");
                 turno = 2;
@@ -94,7 +119,8 @@ public class Computer extends AppCompatActivity {
                         final int finalJ = j;
                         new Handler().postDelayed(new Runnable() {
                             public void run() {
-                                Button b = (Button)gridLayout.getChildAt(gridLayout.getColumnCount()* finalI + finalJ);
+                                //Button b = (Button)gridLayout.getChildAt(gridLayout.getColumnCount()* finalI + finalJ);
+                                Button b = (Button) findViewById(getResources().getIdentifier("b"+finalI+finalJ, "id", getPackageName()));
                                 b.setBackground(getResources().getDrawable(R.drawable.cerchio));
                                 testo.setText(getResources().getString(R.string.eTurno)+" Player1");
                                 turno = 1;

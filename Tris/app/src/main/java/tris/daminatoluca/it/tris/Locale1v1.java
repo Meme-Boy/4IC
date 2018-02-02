@@ -33,6 +33,7 @@ public class Locale1v1 extends AppCompatActivity {
         tris = new Tris();
 
         testo = (TextView) findViewById(R.id.testoComputer);
+        /*
         gridLayout = (GridLayout) findViewById(R.id.glComputer);
         for(int i=0; i<gridLayout.getRowCount(); i++){
             for(int j=0; j<gridLayout.getColumnCount(); j++){
@@ -47,6 +48,7 @@ public class Locale1v1 extends AppCompatActivity {
                 });
             }
         }
+        */
 
         turno = getIntent().getIntExtra("turno", 1);
         if(turno == 1)
@@ -67,6 +69,7 @@ public class Locale1v1 extends AppCompatActivity {
         }
     }
 
+    /*
     public void bottone(int row, int column){
         if (tris.isLibero(row, column)) {
             if(turno == giocatore1) {
@@ -79,6 +82,33 @@ public class Locale1v1 extends AppCompatActivity {
             } else if(turno == giocatore2) {
                 tris.setTurno(row, column, giocatore2);
                 Button b = (Button) gridLayout.getChildAt(gridLayout.getColumnCount() * row + column);
+                b.setBackground(getResources().getDrawable(R.drawable.cerchio));
+                testo.setText(getResources().getString(R.string.eTurno) + " Player1");
+                turno = 1;
+                checkVittoria();
+            }
+        } else
+            Toast.makeText(this, getResources().getString(R.string.nonLibera), Toast.LENGTH_SHORT).show();
+    }
+    */
+
+    public void bottone(View view){
+        int row, column;
+        String id = getResources().getResourceName(view.getId());
+        id = id.substring(id.length()-3);
+        row = Integer.parseInt(id.charAt(1)+"");
+        column = Integer.parseInt(id.charAt(2)+"");
+        if (tris.isLibero(row, column)) {
+            if(turno == giocatore1) {
+                tris.setTurno(row, column, giocatore1);
+                Button b = (Button)view;
+                b.setBackground(getResources().getDrawable(R.drawable.croce));
+                testo.setText(getResources().getString(R.string.eTurno) + " Player2");
+                turno = 2;
+                checkVittoria();
+            } else if(turno == giocatore2) {
+                tris.setTurno(row, column, giocatore2);
+                Button b = (Button)view;
                 b.setBackground(getResources().getDrawable(R.drawable.cerchio));
                 testo.setText(getResources().getString(R.string.eTurno) + " Player1");
                 turno = 1;
