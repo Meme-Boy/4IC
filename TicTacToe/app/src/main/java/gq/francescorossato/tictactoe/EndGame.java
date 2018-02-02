@@ -12,12 +12,12 @@ public class EndGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
         String result = getIntent().getStringExtra("result");
-        if(result == "draft") {
+        if(result.equals("draft")) {
             ((TextView)findViewById(R.id.mainMessage)).setText(R.string.ohNo);
             ((TextView)findViewById(R.id.subMessage)).setText(R.string.draft);
         }
         else{
-            if(result == "X"){
+            if(result.equals("X")){
                 ((TextView)findViewById(R.id.mainMessage)).setText(R.string.congratulations);
                 ((TextView)findViewById(R.id.subMessage)).setText(R.string.win);
             }

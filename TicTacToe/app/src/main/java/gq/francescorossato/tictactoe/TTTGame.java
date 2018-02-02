@@ -39,18 +39,17 @@ public class TTTGame {
             else {
                 if (board[0][2] == board[1][2] && board[1][2] == board[2][2] && board[0][2] != ' ')
                     return board[0][2];
-                else return ' ';
+                return ' ';
             }
         }
     }
     private char checkDiagonal(){
         if(board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ')
             return board [0][0];
-        else{
+        else
             if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')
                 return board[0][2];
-            else return ' ';
-        }
+        return ' ';
     }
     private char checkDraft(){
         for (char[] cells : board)
@@ -72,66 +71,66 @@ public class TTTGame {
 
     private int[] checkTwoHorizontal(){
         //first row
-        if(board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == ' ')
+        if(board[0][0] == board[0][1] && board[0][2] == ' ')
             return new int[]{0, 2};
-        if(board[0][2] == 'X' && board[0][1] == 'X' && board[0][0] == ' ')
+        if(board[0][2] == board[0][1] && board[0][0] == ' ')
             return new int[]{0, 0};
-        if(board[0][0] == 'X' && board[0][2] == 'X' && board[0][1] == ' ')
+        if(board[0][0] == board[0][2] && board[0][1] == ' ')
             return new int[]{0, 1};
         //second row
-        if(board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == ' ')
+        if(board[1][0] == board[1][1] && board[1][2] == ' ')
             return new int[]{1, 2};
-        if(board[1][2] == 'X' && board[1][1] == 'X' && board[1][0] == ' ')
+        if(board[1][2] == board[1][1] && board[1][0] == ' ')
             return new int[]{1, 0};
-        if(board[1][0] == 'X' && board[1][2] == 'X' && board[1][1] == ' ')
+        if(board[1][0] == board[1][2] && board[1][1] == ' ')
             return new int[]{1, 1};
         //third row
-        if(board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == ' ')
+        if(board[2][0] == board[2][1] && board[2][2] == ' ')
             return new int[]{2, 2};
-        if(board[2][2] == 'X' && board[2][1] == 'X' && board[2][0] == ' ')
+        if(board[2][2] == board[2][1] && board[2][0] == ' ')
             return new int[]{2, 0};
-        if(board[2][0] == 'X' && board[2][2] == 'X' && board[2][1] == ' ')
+        if(board[2][0] == board[2][2] && board[2][1] == ' ')
             return new int[]{2, 1};
         return null;
     }
     private int[] checkTwoVertical(){
         //first column
-        if(board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == ' ')
+        if(board[0][0] == board[1][0] && board[2][0] == ' ')
             return new int[]{2, 0};
-        if(board[2][0] == 'X' && board[1][0] == 'X' && board[0][0] == ' ')
+        if(board[2][0] == board[1][0] && board[0][0] == ' ')
             return new int[]{0, 0};
-        if(board[0][0] == 'X' && board[2][0] == 'X' && board[1][0] == ' ')
+        if(board[0][0] == board[2][0] && board[1][0] == ' ')
             return new int[]{1, 0};
         //second column
-        if(board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == ' ')
+        if(board[0][1] == board[1][1] && board[2][1] == ' ')
             return new int[]{2, 1};
-        if(board[2][1] == 'X' && board[1][1] == 'X' && board[0][1] == ' ')
+        if(board[2][1] == board[1][1] && board[0][1] == ' ')
             return new int[]{0, 1};
-        if(board[0][1] == 'X' && board[2][1] == 'X' && board[1][1] == ' ')
+        if(board[0][1] == board[2][1] && board[1][1] == ' ')
             return new int[]{1, 1};
         //third column
-        if(board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == ' ')
+        if(board[0][2] == board[1][2] && board[2][2] == ' ')
             return new int[]{2, 2};
-        if(board[2][2] == 'X' && board[1][2] == 'X' && board[0][2] == ' ')
+        if(board[2][2] == board[1][2] && board[0][2] == ' ')
             return new int[]{0, 2};
-        if(board[0][2] == 'X' && board[2][2] == 'X' && board[1][2] == ' ')
+        if(board[0][2] == board[2][2] && board[1][2] == ' ')
             return new int[]{1, 2};
         return null;
     }
     private int[] checkTwoDiagonal(){
         //'\' diagonal
-        if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == ' ')
+        if(board[0][0] == board[1][1] && board[2][2] == ' ')
             return new int[]{2, 2};
-        if(board[2][2] == 'X' && board[1][1] == 'X' && board[0][0] == ' ')
+        if(board[2][2] == board[1][1] && board[0][0] == ' ')
             return new int[]{0, 0};
-        if(board[0][0] == 'X' && board[2][2] == 'X' && board[1][1] == ' ')
+        if(board[0][0] == board[2][2] && board[1][1] == ' ')
             return new int[]{1, 1};
         //'/' diagonal
-        if(board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == ' ')
+        if(board[0][2] == board[1][1] && board[2][0] == ' ')
             return new int[]{2, 0};
-        if(board[2][0] == 'X' && board[1][1] == 'X' && board[0][2] == ' ')
+        if(board[2][0] == board[1][1] && board[0][2] == ' ')
             return new int[]{0, 2};
-        if(board[0][2] == 'X' && board[2][0] == 'X' && board[1][1] == ' ')
+        if(board[0][2] == board[2][0] && board[1][1] == ' ')
             return new int[]{1, 1};
         return null;
     }
