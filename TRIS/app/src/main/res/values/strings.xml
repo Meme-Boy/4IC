@@ -1,0 +1,9 @@
+<resources>
+    <string name="splash_screen_1">Tic Tac Toe Game</string>
+    <string name="splash_screen_2">\t\t\t\t\tPowered by\n Romano Giacomo</string>
+    <string name="app_name">TRIS</string>
+    <string name="newGame">START NEW GAME</string>
+    <string name="gameMode_1">PLAYER VS PlAYER</string>
+    <string name="gameMode_2">PLAYER VS COMPUTER</string>
+    <string name="exitGame">LEAVE THE GAME</string>
+</resources>
