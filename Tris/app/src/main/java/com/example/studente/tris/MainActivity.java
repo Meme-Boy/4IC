@@ -8,94 +8,258 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public Button[][] buttons;
     public int[][] grid;
     public int current;
     public TextView showTurn;
     public String[] turn = new String[]{"Turno di X", "Turno di O"};
+    public Button button1, button2, button3, button4, button5, button6,
+            button7, button8, button9, reset;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Toast.makeText(getApplicationContext(), "Pareggio", Toast.LENGTH_LONG).show();
 
-        buttons = new Button[3][3];
         //matrice per controllare la partita
         grid = new int[3][3];
         //0 e 1 sono rispettivamente i due giocatori
         current = 0;
 
-        buttons[0][0] = (Button) findViewById(R.id.button1);
-        buttons[0][1] = (Button) findViewById(R.id.button2);
-        buttons[0][2] = (Button) findViewById(R.id.button3);
-        buttons[1][0] = (Button) findViewById(R.id.button4);
-        buttons[1][1] = (Button) findViewById(R.id.button5);
-        buttons[1][2] = (Button) findViewById(R.id.button6);
-        buttons[2][0] = (Button) findViewById(R.id.button7);
-        buttons[2][1] = (Button) findViewById(R.id.button8);
-        buttons[2][2] = (Button) findViewById(R.id.button9);
-        Button reset = (Button) findViewById(R.id.reset);
+        button1 = (Button) findViewById(R.id.button1);
+        button1.setOnClickListener(this);
+        button1.setText("");
+        button1.setClickable(true);
+        button2 = (Button) findViewById(R.id.button2);
+        button2.setOnClickListener(this);
+        button2.setText("");
+        button2.setClickable(true);
+        button3 = (Button) findViewById(R.id.button3);
+        button3.setOnClickListener(this);
+        button3.setText("");
+        button3.setClickable(true);
+        button4 = (Button) findViewById(R.id.button4);
+        button4.setOnClickListener(this);
+        button4.setText("");
+        button4.setClickable(true);
+        button5 = (Button) findViewById(R.id.button5);
+        button5.setOnClickListener(this);
+        button5.setText("");
+        button5.setClickable(true);
+        button6 = (Button) findViewById(R.id.button6);
+        button6.setOnClickListener(this);
+        button6.setText("");
+        button6.setClickable(true);
+        button7 = (Button) findViewById(R.id.button7);
+        button7.setOnClickListener(this);
+        button7.setText("");
+        button7.setClickable(true);
+        button8 = (Button) findViewById(R.id.button8);
+        button8.setOnClickListener(this);
+        button8.setText("");
+        button8.setClickable(true);
+        button9 = (Button) findViewById(R.id.button9);
+        button9.setOnClickListener(this);
+        button9.setText("");
+        button9.setClickable(true);
+        reset = (Button) findViewById(R.id.reset);
+
         showTurn = (TextView) findViewById(R.id.textView);
         showTurn.setText(turn[current]);
-
-        //ricomincia il gioco quando viene premuto New Game
-        reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                reset();
-            }
-        });
-
-
-        for(int i = 0; i<3; i++){
-            for(int j = 0; j<3; j++){
-                buttons[i][j].setOnClickListener(new myListener(i, j));
-                buttons[i][j].setText("");
-                buttons[i][j].setClickable(true);
-            }
-        }
 
         for(int i = 0; i<=2; i++){
             for(int j = 0; j<=2; j++){
                 grid[i][j] = 2;
             }
         }
-
     }
 
     //quando viene cliccato un bottone
     //cambia il background del bottone a seconda del turno
     //fai il controllo se qualcuno ha vinto
 
-    class myListener implements View.OnClickListener{
+    @Override
+    public void onClick(View v){
 
-        private int x, y;
-        public myListener(int x, int y){
-            this.x = x;
-            this.y = y;
-        }
+        switch (v.getId()){
 
-        @Override
-        public void onClick(View view) {
-            if(current == 0){
-                buttons[x][y].setText("X");
-                grid[x][y] = 0;
-                buttons[x][y].setClickable(false);
-                current = 1;
-                showTurn.setText(turn[current]);
-            }else{
-                buttons[x][y].setText("O");
-                grid[x][y] = 1;
-                buttons[x][y].setClickable(false);
-                current = 0;
-                showTurn.setText(turn[current]);
-            }
-            if(checkBoard()){
-                reset();
-            }
+            case R.id.button1:{
+                if(current == 0){
+                    button1.setText("X");
+                    grid[0][0] = 0;
+                    button1.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button1.setText("O");
+                    grid[0][0] = 1;
+                    button1.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            case R.id.button2:{
+                if(current == 0){
+                    button2.setText("X");
+                    grid[0][1] = 0;
+                    button2.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button2.setText("O");
+                    grid[0][1] = 1;
+                    button2.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            case R.id.button3:{
+                if(current == 0){
+                    button3.setText("X");
+                    grid[0][2] = 0;
+                    button3.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button3.setText("O");
+                    grid[0][2] = 1;
+                    button3.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            case R.id.button4:{
+                if(current == 0){
+                    button4.setText("X");
+                    grid[1][0] = 0;
+                    button4.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button4.setText("O");
+                    grid[1][0] = 1;
+                    button4.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            case R.id.button5:{
+                if(current == 0){
+                    button5.setText("X");
+                    grid[1][1] = 0;
+                    button5.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button5.setText("O");
+                    grid[1][1] = 1;
+                    button5.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+
+            } break;
+
+            case R.id.button6:{
+                if(current == 0){
+                    button6.setText("X");
+                    grid[1][2] = 0;
+                    button6.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button6.setText("O");
+                    grid[1][2] = 1;
+                    button6.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            case R.id.button7:{
+                if(current == 0){
+                    button7.setText("X");
+                    grid[2][0] = 0;
+                    button7.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button7.setText("O");
+                    grid[2][0] = 1;
+                    button7.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            case R.id.button8:{
+                if(current == 0){
+                    button8.setText("X");
+                    grid[2][1] = 0;
+                    button8.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button8.setText("O");
+                    grid[2][1] = 1;
+                    button8.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            case R.id.button9:{
+                if(current == 0){
+                    button9.setText("X");
+                    grid[2][2] = 0;
+                    button9.setClickable(false);
+                    current = 1;
+                    showTurn.setText(turn[current]);
+                }else{
+                    button9.setText("O");
+                    grid[2][2] = 1;
+                    button9.setClickable(false);
+                    current = 0;
+                    showTurn.setText(turn[current]);
+                }
+                if(checkBoard()){
+                    reset();
+                }
+            } break;
+
+            //resetta il gioco (la MainActivity) quando viene premuto il pulsante New Game
+            case R.id.reset : reset();
+            default: break;
         }
     }
 
@@ -145,3 +309,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 }
+
