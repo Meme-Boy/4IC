@@ -19,19 +19,22 @@
                 android:id="@+id/uno"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
 
             <Button
                 android:id="@+id/due"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
 
             <Button
                 android:id="@+id/tre"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
         </TableRow>
 
         <TableRow>
@@ -40,19 +43,22 @@
                 android:id="@+id/quattro"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
 
             <Button
                 android:id="@+id/cinque"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
 
             <Button
                 android:id="@+id/sei"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
         </TableRow>
 
         <TableRow>
@@ -61,19 +67,22 @@
                 android:id="@+id/sette"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
 
             <Button
                 android:id="@+id/otto"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
 
             <Button
                 android:id="@+id/nove"
                 android:backgroundTint="@color/white"
                 android:text=""
-                android:textSize="60dp" />
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
         </TableRow>
 
 

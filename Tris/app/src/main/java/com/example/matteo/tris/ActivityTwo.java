@@ -19,9 +19,10 @@ public class ActivityTwo extends AppCompatActivity{
         restart.setOnClickListener((View view) -> {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+            finish();
         });
 
-        if(getIntent().getStringExtra("winner").equals("none")) text.setText("Pareggio");
-        else text.setText("Ha Vinto il Giocatore "+getIntent().getStringExtra("winner"));
+        if(getIntent().getCharExtra("winner",' ')=='n') text.setText("Pareggio");
+        else text.setText("Ha Vinto il Giocatore "+getIntent().getCharExtra("winner",' '));
     }
 }

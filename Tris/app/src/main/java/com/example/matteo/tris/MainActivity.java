@@ -10,62 +10,62 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int j=0;
-    Button[][] btn;
+    char[][] btn;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn=new Button[3][3];
-        btn[0][0] = findViewById(R.id.uno);
-        btn[0][1] = findViewById(R.id.due);
-        btn[0][2] = findViewById(R.id.tre);
-        btn[1][0] = findViewById(R.id.quattro);
-        btn[1][1] = findViewById(R.id.cinque);
-        btn[1][2] = findViewById(R.id.sei);
-        btn[2][0] = findViewById(R.id.sette);
-        btn[2][1] = findViewById(R.id.otto);
-        btn[2][2] = findViewById(R.id.nove);
+        btn = new char[][] {
+                {' ',' ',' '},
+                {' ',' ',' '},
+                {' ',' ',' '}
+        };
 
-        clickListener(btn[0][0]);
-        clickListener(btn[0][1]);
-        clickListener(btn[0][2]);
-        clickListener(btn[1][0]);
-        clickListener(btn[1][1]);
-        clickListener(btn[1][2]);
-        clickListener(btn[2][0]);
-        clickListener(btn[2][1]);
-        clickListener(btn[2][2]);
-
+        i = new Intent(this,ActivityTwo.class);
 
     }
 
-    public void clickListener(Button b) {
-        b.setOnClickListener((View view) -> {
-            if (b.getText().equals("")) {
-                if (j % 2 == 0) b.setText("X");
-                else b.setText("O");
-                j++;
-            }
 
-            Intent i = new Intent(this,ActivityTwo.class);
-            if(j<9) checkVictory(i);
-            else { i.putExtra("winner","none"); startActivity(i);}
-        });
+    public void clickListener(View view){
+
+        Button clicked = (Button)(view);
+        char pressed;
+
+        if(clicked.getText().equals("")) {
+            if (j % 2 == 0) { clicked.setText("X"); pressed='X'; }
+            else { clicked.setText("O"); pressed='O'; }
+            j++;
+            switch (view.getId()) {
+                case R.id.uno: btn[0][0] = pressed; break;
+                case R.id.due: btn[0][1] = pressed; break;
+                case R.id.tre: btn[0][2] = pressed; break;
+                case R.id.quattro: btn[1][0] = pressed; break;
+                case R.id.cinque: btn[1][1] = pressed; break;
+                case R.id.sei: btn[1][2] = pressed; break;
+                case R.id.sette: btn[2][0] = pressed; break;
+                case R.id.otto: btn[2][1] = pressed; break;
+                case R.id.nove: btn[2][2] = pressed; break;
+            }
+        }
+
+        if(j<9) checkVictory(i);
+        else { i.putExtra("winner",'n'); startActivity(i); finish();}
     }
 
     public void checkVictory(Intent i){
-        if(btn[0][0].getText().equals(btn[0][1].getText()) && btn[0][0].getText().equals(btn[0][2].getText()) && !(btn[0][0].getText().equals(""))) { i.putExtra("winner",btn[0][0].getText()); startActivity(i); }
-        if(btn[1][0].getText().equals(btn[1][1].getText()) && btn[1][0].getText().equals(btn[1][2].getText()) && !(btn[1][0].getText().equals(""))) { i.putExtra("winner",btn[1][0].getText()); startActivity(i); }
-        if(btn[2][0].getText().equals(btn[2][1].getText()) && btn[2][0].getText().equals(btn[2][2].getText()) && !(btn[2][0].getText().equals(""))) { i.putExtra("winner",btn[2][0].getText()); startActivity(i); }
+        if(btn[0][0]==btn[0][1] && btn[0][0]==btn[0][2] && btn[0][0]!=' ') { i.putExtra("winner",btn[0][0]) ; startActivity(i); finish(); }
+        if(btn[1][0]==btn[1][1] && btn[1][0]==btn[1][2] && btn[1][0]!=' ') { i.putExtra("winner",btn[1][0]) ; startActivity(i); finish(); }
+        if(btn[2][0]==btn[2][1] && btn[2][0]==btn[2][2] && btn[2][0]!=' ') { i.putExtra("winner",btn[2][0]) ; startActivity(i); finish(); }
 
-        if(btn[0][0].getText().equals(btn[1][0].getText()) && btn[0][0].getText().equals(btn[2][0].getText()) && !(btn[0][0].getText().equals(""))) { i.putExtra("winner",btn[0][0].getText()); startActivity(i); }
-        if(btn[0][1].getText().equals(btn[1][1].getText()) && btn[0][1].getText().equals(btn[2][1].getText()) && !(btn[0][1].getText().equals(""))) { i.putExtra("winner",btn[0][1].getText()); startActivity(i); }
-        if(btn[0][2].getText().equals(btn[1][2].getText()) && btn[0][2].getText().equals(btn[2][2].getText()) && !(btn[0][2].getText().equals(""))) { i.putExtra("winner",btn[0][2].getText()); startActivity(i); }
+        if(btn[0][0]==btn[1][0] && btn[0][0]==btn[2][0] && btn[0][0]!=' ') { i.putExtra("winner",btn[0][0]) ; startActivity(i); finish(); }
+        if(btn[0][1]==btn[1][1] && btn[0][1]==btn[2][1] && btn[0][1]!=' ') { i.putExtra("winner",btn[0][1]) ; startActivity(i); finish(); }
+        if(btn[0][2]==btn[1][2] && btn[0][2]==btn[2][2] && btn[0][2]!=' ') { i.putExtra("winner",btn[0][2]) ; startActivity(i); finish(); }
 
-        if(btn[0][0].getText().equals(btn[1][1].getText()) && btn[0][0].getText().equals(btn[2][2].getText()) && !(btn[0][0].getText().equals(""))) { i.putExtra("winner",btn[0][0].getText()); startActivity(i); }
-        if(btn[0][2].getText().equals(btn[1][1].getText()) && btn[0][2].getText().equals(btn[2][0].getText()) && !(btn[0][2].getText().equals(""))) { i.putExtra("winner",btn[0][2].getText()); startActivity(i); }
+        if(btn[0][0]==btn[1][1] && btn[0][0]==btn[2][2] && btn[0][0]!=' ') { i.putExtra("winner",btn[0][0]) ; startActivity(i); finish(); }
+        if(btn[0][2]==btn[1][1] && btn[0][2]==btn[2][0] && btn[0][2]!=' ') { i.putExtra("winner",btn[0][2]) ; startActivity(i); finish(); }
 
     }
 
