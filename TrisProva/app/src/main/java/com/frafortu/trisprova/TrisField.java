@@ -23,7 +23,7 @@ public class TrisField {
         for(int i = 0; i < field.length; i++)
             for(int j = 0; j < field[i].length; j++)
                 field[i][j] = new Box();
-        isPlayer1 = false;//just for start
+        isPlayer1 = true;//just for start
     }
     
     public void play() {
@@ -32,7 +32,6 @@ public class TrisField {
                 int row = i;
                 int col = j;
                 boxes[i][j].setOnClickListener(event -> {
-                    isPlayer1 = !isPlayer1;
                     if(! field[row][col].hasBeenPressed) {
                         if(isPlayer1) {
                             boxes[row][col].setText("X");
@@ -58,6 +57,7 @@ public class TrisField {
                             if(!hasSomeonewon()) Toast.makeText(context, "Tie", Toast.LENGTH_LONG).show();
                             return;
                         }
+                        isPlayer1 = !isPlayer1;
                     } else {
                         Toast.makeText(context,"Already pressed",Toast.LENGTH_LONG).show();
                     }
@@ -152,4 +152,5 @@ public class TrisField {
         if (player2Wins) return true;
         return false;
     }
+
 }

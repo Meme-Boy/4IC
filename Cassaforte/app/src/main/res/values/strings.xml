@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cassaforte</string>
+    <string name="delete">delete</string>
+    <string name="password">Hai indovinato la password</string>
+</resources>
