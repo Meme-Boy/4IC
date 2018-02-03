@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
+ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\David\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b89f3eb5ed949cbef0eea71b0092cb43\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\David\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\c95d65d39166a7cb309b262c4622a175\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\David\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\757043c566649c7d90fc6d658ce3f20c\AndroidManifest.xml:17:1-28:12
@@ -15,25 +15,25 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\David\.grad
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\David\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\6d211cc90345fd7aab8b648e42d8648d\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\David\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\95e908d22cea51c982004fb6f068cf2f\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\David\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\b8f6b2cac38169273e6cae07b5a9d629\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
 	package
 		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
+		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
 		INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-21:12
+		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:1-22:12
 		INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:5:5-19:19
+ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:5:5-20:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\David\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b89f3eb5ed949cbef0eea71b0092cb43\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\David\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\b89f3eb5ed949cbef0eea71b0092cb43\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\David\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\c95d65d39166a7cb309b262c4622a175\AndroidManifest.xml:9:5-20
@@ -82,6 +82,10 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:16:17-77
 	android:name
 		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:16:27-74
+activity#com.example.david.triss2.Main2Activity
+ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:19:9-60
+	android:name
+		ADDED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml:19:19-48
 uses-sdk
 INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\David\Desktop\android-master\Triss2\app\src\main\AndroidManifest.xml
