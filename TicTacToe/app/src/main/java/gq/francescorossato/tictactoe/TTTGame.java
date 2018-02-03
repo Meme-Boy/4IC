@@ -71,66 +71,66 @@ public class TTTGame {
 
     private int[] checkTwoHorizontal(){
         //first row
-        if(board[0][0] == board[0][1] && board[0][2] == ' ')
+        if(board[0][0] != ' ' && board[0][1] == board[0][0] && board[0][2] == ' ')
             return new int[]{0, 2};
-        if(board[0][2] == board[0][1] && board[0][0] == ' ')
+        if(board[0][2] != ' ' && board[0][1] == board[0][2] && board[0][0] == ' ')
             return new int[]{0, 0};
-        if(board[0][0] == board[0][2] && board[0][1] == ' ')
+        if(board[0][0] != ' ' && board[0][2] == board[0][0] && board[0][1] == ' ')
             return new int[]{0, 1};
         //second row
-        if(board[1][0] == board[1][1] && board[1][2] == ' ')
+        if(board[1][0] != ' ' && board[1][1] == board[1][0] && board[1][2] == ' ')
             return new int[]{1, 2};
-        if(board[1][2] == board[1][1] && board[1][0] == ' ')
+        if(board[1][2] != ' ' && board[1][1] == board[1][2] && board[1][0] == ' ')
             return new int[]{1, 0};
-        if(board[1][0] == board[1][2] && board[1][1] == ' ')
+        if(board[1][0] != ' ' && board[1][2] == board[1][0] && board[1][1] == ' ')
             return new int[]{1, 1};
         //third row
-        if(board[2][0] == board[2][1] && board[2][2] == ' ')
+        if(board[2][0] != ' ' && board[2][1] == board[2][0] && board[2][2] == ' ')
             return new int[]{2, 2};
-        if(board[2][2] == board[2][1] && board[2][0] == ' ')
+        if(board[2][2] != ' ' && board[2][1] == board[2][2] && board[2][0] == ' ')
             return new int[]{2, 0};
-        if(board[2][0] == board[2][2] && board[2][1] == ' ')
+        if(board[2][0] != ' ' && board[2][2] == board[2][0] && board[2][1] == ' ')
             return new int[]{2, 1};
         return null;
     }
     private int[] checkTwoVertical(){
         //first column
-        if(board[0][0] == board[1][0] && board[2][0] == ' ')
+        if(board[0][0] != ' ' && board[1][0] == board[0][0] && board[2][0] == ' ')
             return new int[]{2, 0};
-        if(board[2][0] == board[1][0] && board[0][0] == ' ')
+        if(board[2][0] != ' ' && board[1][0] == board[2][0] && board[0][0] == ' ')
             return new int[]{0, 0};
-        if(board[0][0] == board[2][0] && board[1][0] == ' ')
+        if(board[0][0] != ' ' && board[2][0] == board[0][0] && board[1][0] == ' ')
             return new int[]{1, 0};
         //second column
-        if(board[0][1] == board[1][1] && board[2][1] == ' ')
+        if(board[0][1] != ' ' && board[1][1] == board[0][1] && board[2][1] == ' ')
             return new int[]{2, 1};
-        if(board[2][1] == board[1][1] && board[0][1] == ' ')
+        if(board[2][1] != ' ' && board[1][1] == board[2][1] && board[0][1] == ' ')
             return new int[]{0, 1};
-        if(board[0][1] == board[2][1] && board[1][1] == ' ')
+        if(board[0][1] != ' ' && board[2][1] == board[0][1] && board[1][1] == ' ')
             return new int[]{1, 1};
         //third column
-        if(board[0][2] == board[1][2] && board[2][2] == ' ')
+        if(board[0][2] != ' ' && board[1][2] == board[0][2] && board[2][2] == ' ')
             return new int[]{2, 2};
-        if(board[2][2] == board[1][2] && board[0][2] == ' ')
+        if(board[2][2] != ' ' && board[1][2] == board[2][2] && board[0][2] == ' ')
             return new int[]{0, 2};
-        if(board[0][2] == board[2][2] && board[1][2] == ' ')
+        if(board[0][2] != ' ' && board[2][2] == board[0][2] && board[1][2] == ' ')
             return new int[]{1, 2};
         return null;
     }
     private int[] checkTwoDiagonal(){
         //'\' diagonal
-        if(board[0][0] == board[1][1] && board[2][2] == ' ')
+        if(board[0][0] != ' ' && board[1][1] == board[0][0] && board[2][2] == ' ')
             return new int[]{2, 2};
-        if(board[2][2] == board[1][1] && board[0][0] == ' ')
+        if(board[2][2] != ' ' && board[1][1] == board[2][2] && board[0][0] == ' ')
             return new int[]{0, 0};
-        if(board[0][0] == board[2][2] && board[1][1] == ' ')
+        if(board[0][0] != ' ' && board[2][2] == board[0][0] && board[1][1] == ' ')
             return new int[]{1, 1};
         //'/' diagonal
-        if(board[0][2] == board[1][1] && board[2][0] == ' ')
+        if(board[0][2] != ' ' && board[1][1] == board[0][2] && board[2][0] == ' ')
             return new int[]{2, 0};
-        if(board[2][0] == board[1][1] && board[0][2] == ' ')
+        if(board[2][0] != ' ' && board[1][1] == board[2][0] && board[0][2] == ' ')
             return new int[]{0, 2};
-        if(board[0][2] == board[2][0] && board[1][1] == ' ')
+        if(board[0][2] != ' ' && board[2][0] == board[0][2] && board[1][1] == ' ')
             return new int[]{1, 1};
         return null;
     }
@@ -173,7 +173,7 @@ public class TTTGame {
                 if (c == ' ')
                     freeCells++;
         if (freeCells > 0) {
-            int cellNumber = new Random().nextInt(freeCells);
+            int cellNumber = new Random().nextInt(freeCells)+1;
             int count = 0;
             for (int i = 0; i < ROWS; i++)
                 for (int j = 0; j < COLS; j++) {
