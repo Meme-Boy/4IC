@@ -17,6 +17,7 @@ public class ActivityTwo extends AppCompatActivity{
         Button restart = findViewById(R.id.restart);
 
         restart.setOnClickListener((View view) -> {
+            Tris.clear();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             finish();
