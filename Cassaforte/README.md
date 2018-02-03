@@ -7,3 +7,6 @@ La **cassaforte** è programmata secondo le seguenti **regole**:
 - Viene inoltre gestita la **modalità landscape**, in cui:
   1. viene **mantenuto il codice corrente**, in qualunque caso,
 	2. viene **mantenuto il colore del codice corrente**, in qualunque caso.
+# Dettagli progetto:
+- Utilizzo di colori per l' abbellimento fisico dell' applicazione.
+- Utilizzo icona personalizzata per l' applicazione, creata sul seguente sito: [AndroidAssetStudio](https://romannurik.github.io/AndroidAssetStudio/).

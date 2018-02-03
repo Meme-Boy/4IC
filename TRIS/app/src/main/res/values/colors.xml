@@ -4,14 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="defaultColor">#8F8F8F</color>
-    <color name="c1">#FFFFFF</color>
-    <color name="c2">#FF0000</color>
+    <color name="c1">#ffffff</color>
+    <color name="c2">#ff0000</color>
     <color name="c3">#ff6f00</color>
-    <color name="c4">#FFFF00</color>
+    <color name="c4">#ffff00</color>
     <color name="c5">#2bff00</color>
-    <color name="c6">#00ffaa</color>
-    <color name="c7">#004cff</color>
-    <color name="c8">#07008e</color>
-    <color name="c9">#ff00cc</color>
-    <color name="c10">#000000</color>
+    <color name="c6">#00e6ff</color>
+    <color name="c7">#0004ff</color>
+    <color name="c8">#ff00cc</color>
+    <color name="c9">#000000</color>
 </resources>

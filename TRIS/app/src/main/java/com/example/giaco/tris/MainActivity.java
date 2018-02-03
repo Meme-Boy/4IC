@@ -44,21 +44,30 @@ public class MainActivity extends AppCompatActivity{
             integerBoard[2] = savedInstanceState.getIntArray("integerBoard_2");
             rebuild();
             count = savedInstanceState.getInt("count");
+        }else{
+            GradientDrawable gd = getNewGradientDrawable();
+            gd.setColor(getResources().getColor(R.color.defaultColor));
+            for(int i=0;i<9;i++)
+                findViewById(R.id.c0x0+i).setBackgroundDrawable(gd);
         }
     }
     private void rebuild(){
         for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
                 if(integerBoard[i][j] == 1 || integerBoard[i][j] == 2){
-                    GradientDrawable gd = new GradientDrawable();
+                    GradientDrawable gd = getNewGradientDrawable();
                     gd.setColor(integerBoard[i][j] == 1 ? player_1 : player_2);
-                    gd.setCornerRadius(80);
-                    gd.setStroke(8, getResources().getColor(R.color.c10));
                     (findViewById(getResources().getIdentifier("c" + i + "x" + j, "id",
                             this.getPackageName()))).setBackgroundDrawable(gd);
                 }
             }
         }
+    }
+    private GradientDrawable getNewGradientDrawable(){
+        GradientDrawable gd = new GradientDrawable();
+        gd.setCornerRadius(80);
+        gd.setStroke(8, getResources().getColor(R.color.c9));
+        return gd;
     }
     public void onClick(View view){
         if(view.getId() == R.id.exitGame){
@@ -95,10 +104,8 @@ public class MainActivity extends AppCompatActivity{
                     firstTime = false;
                 }
             }
-            GradientDrawable gd = new GradientDrawable();
+            GradientDrawable gd = getNewGradientDrawable();
             gd.setColor(flag ? player_1 : player_2);
-            gd.setCornerRadius(80);
-            gd.setStroke(8, getResources().getColor(R.color.c10));
             button.setBackgroundDrawable(gd);
             booleanBoard[row][column] = false;
             integerBoard[row][column] = flag ? 1 : 2;
@@ -138,10 +145,8 @@ public class MainActivity extends AppCompatActivity{
                     }
                 }
             }
-            GradientDrawable gd = new GradientDrawable();
+            GradientDrawable gd = getNewGradientDrawable();
             gd.setColor(player_2);
-            gd.setCornerRadius(80);
-            gd.setStroke(8, getResources().getColor(R.color.c10));
             findViewById(getResources().getIdentifier("c" + results[0] + "x" + results[1], "id",
                     this.getPackageName())).setBackgroundDrawable(gd);
             booleanBoard[results[0]][results[1]] = false;
@@ -158,10 +163,8 @@ public class MainActivity extends AppCompatActivity{
         integerBoard = new int[][]{{0, 0, 0},
                 {0, 0, 0},
                 {0, 0, 0}};
-        GradientDrawable gd = new GradientDrawable();
+        GradientDrawable gd = getNewGradientDrawable();
         gd.setColor(getResources().getColor(R.color.defaultColor));
-        gd.setCornerRadius(80);
-        gd.setStroke(8, getResources().getColor(R.color.c10));
         for(int i=0;i<9;i++)
             findViewById(R.id.c0x0+i).setBackgroundDrawable(gd);
         firstPlayer = true;
@@ -172,7 +175,7 @@ public class MainActivity extends AppCompatActivity{
         gameFinished = false;
     }
     private int randomColor(){
-        return getResources().getColor(R.color.c1 + new Random().nextInt(10));
+        return getResources().getColor(R.color.c1 + new Random().nextInt(9));
     }
     private void checkResult(int player){
         boolean b1 = integerBoard[0][0] == player && integerBoard[0][1] == player && integerBoard[0][2] == player;
@@ -359,39 +362,15 @@ public class MainActivity extends AppCompatActivity{
         }else if(integerBoard[1][1] == 2 && integerBoard[1][2] == 0){
             r = 1;
             c = 2;
-        }else {
+        }else{
             r = 1;
             c = 1;
-            if (!booleanBoard[r][c]) {
+            if(!booleanBoard[r][c]){
                 r = 0;
                 c = 0;
-                if (!booleanBoard[r][c]) {
+                if(!booleanBoard[r][c]){
                     r = 0;
                     c = 2;
-                    if (!booleanBoard[r][c]) {
-                        r = 2;
-                        c = 0;
-                        if (!booleanBoard[r][c]) {
-                            r = 2;
-                            c = 2;
-                            if (!booleanBoard[r][c]) {
-                                r = 0;
-                                c = 1;
-                                if (!booleanBoard[r][c]) {
-                                    r = 1;
-                                    c = 0;
-                                    if (!booleanBoard[r][c]) {
-                                        r = 1;
-                                        c = 2;
-                                        if (!booleanBoard[r][c]) {
-                                            r = 2;
-                                            c = 1;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
         }
