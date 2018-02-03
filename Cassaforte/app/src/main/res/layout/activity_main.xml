@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.david.cassaforte.MainActivity">
+
+    <TextView
+        android:id="@+id/testo"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="PIN :"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/uno"
+        android:layout_width="60dp"
+        android:onClick="onClick"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/testo"
+        android:layout_below="@+id/testo"
+        android:layout_marginTop="43dp"
+        android:tag="1"
+        android:text="1" />
+
+    <Button
+        android:id="@+id/due"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:onClick="onClick"
+        android:layout_alignTop="@+id/uno"
+        android:layout_toEndOf="@+id/uno"
+        android:tag="2"
+        android:text="2" />
+
+    <Button
+        android:id="@+id/tre"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/due"
+        android:layout_toEndOf="@+id/due"
+        android:tag="3"
+        android:text="3" android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/quattro"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/uno"
+        android:layout_toStartOf="@+id/due"
+        android:tag="4"
+        android:text="4" android:onClick="onClick" />
+
+    <Button
+        android:id="@+id/cinque"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/quattro"
+        android:layout_toEndOf="@+id/quattro"
+        android:tag="5"
+        android:text="5" android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/sei"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/cinque"
+        android:layout_toEndOf="@+id/cinque"
+        android:tag="6"
+        android:text="6" android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/sette"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/quattro"
+        android:layout_toStartOf="@+id/cinque"
+        android:tag="7"
+        android:text="7" android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/otto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/cinque"
+        android:layout_toEndOf="@+id/quattro"
+        android:tag="8"
+        android:text="8" android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/nove"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/sei"
+        android:layout_toEndOf="@+id/otto"
+        android:tag="9"
+        android:text="9" android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/zero"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/sette"
+        android:layout_below="@+id/sette"
+        android:tag="0"
+        android:text="0" android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/canc"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/otto"
+        android:layout_toEndOf="@+id/zero"
+        android:tag="-1"
+        android:text="DEL"
+        android:onClick="onClick" />
+
+    <ImageView
+        android:id="@+id/cassaForteImmagine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/nove"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/zero"
+        android:layout_below="@+id/canc"
+        android:layout_marginTop="32dp"
+        app:srcCompat="@mipmap/cassafortechiusa"
+        />
+
+</android.widget.RelativeLayout>

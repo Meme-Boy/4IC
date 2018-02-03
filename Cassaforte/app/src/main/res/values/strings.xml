@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Cassaforte</string>
+    <string name="pin">PIN : </string>
+</resources>
