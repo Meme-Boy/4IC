@@ -1,25 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/studente/Scrivania/Cassaforte/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "C:\\Users\\David\\Desktop\\android-master\\Cassaforte\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/studente/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a22d9badfa91b8c834403c4673c15e6/res/values-h720dp-v13/values-h720dp-v13.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "66",
-                        "endOffsets": "117"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/studente/Scrivania/Cassaforte/C:\\Users\\David\\Desktop\\android-master\\Cassaforte\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
-            "map": [
-                {
-                    "source": "/home/studente/Scrivania/Cassaforte/C:\\Users\\David\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\b89f3eb5ed949cbef0eea71b0092cb43\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\David\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\b89f3eb5ed949cbef0eea71b0092cb43\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

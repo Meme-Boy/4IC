@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/studente/Scrivania/Cassaforte/C:\\Users\\David\\Desktop\\android-master\\Cassaforte\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\David\\Desktop\\android-master\\Cassaforte\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "/home/studente/Scrivania/Cassaforte/C:\\Users\\David\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\b89f3eb5ed949cbef0eea71b0092cb43\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\David\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\b89f3eb5ed949cbef0eea71b0092cb43\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,47 +23,13 @@
                     }
                 },
                 {
-                    "source": "/home/studente/Scrivania/Cassaforte/C:\\Users\\David\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\95e908d22cea51c982004fb6f068cf2f\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\David\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\95e908d22cea51c982004fb6f068cf2f\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
                         "endColumns": "65",
                         "endOffsets": "116"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/studente/Scrivania/Cassaforte/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
-            "map": [
-                {
-                    "source": "/home/studente/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/5ca8f43a957a07a1f679bb81ecdd5961/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "/home/studente/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7a22d9badfa91b8c834403c4673c15e6/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "121",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "289"
                     }
                 }
             ]

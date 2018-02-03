@@ -65,8 +65,8 @@ public class Main2Activity extends AppCompatActivity {
 
 
     }
-    private void manageBlinkEffect(EditText txt) {
-        ObjectAnimator anim = ObjectAnimator.ofInt(txt, "backgroundColor", Color.WHITE, Color.RED, Color.WHITE);
+    private void manageBlinkEffect(EditText s) {
+        ObjectAnimator anim = ObjectAnimator.ofInt(s, "backgroundColor", Color.WHITE, Color.RED, Color.WHITE);
         anim.setDuration(1500);
         anim.setEvaluator(new ArgbEvaluator());
         anim.setRepeatMode(ValueAnimator.REVERSE);

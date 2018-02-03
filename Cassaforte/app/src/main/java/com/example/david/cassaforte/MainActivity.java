@@ -132,12 +132,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void manageBlinkEffect(TextView txt) {
-        ObjectAnimator anim = ObjectAnimator.ofInt(txt, "backgroundColor", Color.WHITE, Color.RED, Color.WHITE);
+    private void manageBlinkEffect(TextView s) {
+        ObjectAnimator anim = ObjectAnimator.ofInt(s, "backgroundColor", Color.WHITE, Color.RED, Color.WHITE);
         anim.setDuration(1500);
         anim.setEvaluator(new ArgbEvaluator());
         anim.setRepeatMode(ValueAnimator.REVERSE);
         anim.setRepeatCount(2);
         anim.start();
     }
+
 }
