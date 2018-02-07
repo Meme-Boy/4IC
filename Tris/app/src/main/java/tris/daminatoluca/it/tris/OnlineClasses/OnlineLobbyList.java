@@ -4,19 +4,13 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.SocketException;
 
 import tris.daminatoluca.it.tris.R;
 
@@ -29,14 +23,15 @@ public class OnlineLobbyList extends AppCompatActivity {
     private EditText editSetIp;
     private Button buttonSetIp;
     private Button buttonRefresh;
-    private TextView lobbyList;
+    private EditText editNameLobby;
+    private Button buttonCreateNewLobby;
+    private LinearLayout layout;
 
     private SharedPreferences prefs;
     private SharedPreferences.Editor prefsEditor;
 
     private String ipServer;
     private int portServer;
-    private Socket server;
     private LobbyLoader lobbyLoader;
 
     private Activity thisActivity;
@@ -57,12 +52,11 @@ public class OnlineLobbyList extends AppCompatActivity {
         editSetIp = (EditText) findViewById(R.id.editSetIp);
         buttonSetIp = (Button) findViewById(R.id.buttonSetIp);
         buttonRefresh = (Button) findViewById(R.id.buttonRefreshLobbies);
-        lobbyList = (TextView) findViewById(R.id.lobbyList);
+        editNameLobby = (EditText) findViewById(R.id.editNomeNewLobby);
+        buttonCreateNewLobby = (Button) findViewById(R.id.buttonCreateNewLobbby);
+        layout = (LinearLayout) findViewById(R.id.containerLobbiesLayout);
 
         editSetIp.setText(getStoredIp());
-
-        lobbyLoader = new LobbyLoader(ipServer, portServer, lobbyList, this);
-        lobbyLoader.start();
     }
 
     private String getStoredIp(){
@@ -74,7 +68,7 @@ public class OnlineLobbyList extends AppCompatActivity {
         prefsEditor.apply();
         ipServer = getStoredIp();
         lobbyLoader.interrupt();
-        lobbyLoader = new LobbyLoader(ipServer, portServer, lobbyList, thisActivity);
+        lobbyLoader = new LobbyLoader(ipServer, portServer, layout, thisActivity);
         lobbyLoader.start();
         editSetIp.setText(getStoredIp());
     }
@@ -83,23 +77,35 @@ public class OnlineLobbyList extends AppCompatActivity {
         lobbyLoader.refreshLobbies();
     }
 
+    public void createLobbyButton(View view){
+        if(editNameLobby.getText().length() > 0){
+            lobbyLoader.createNewLobby(editNameLobby.getText().toString());
+            lobbyLoader.refreshLobbies();
+        } else Toast.makeText(this, "Insert a name", Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         lobbyLoader.interrupt();
         finish();
     }
 
     @Override
     protected void onPause() {
-        super.onPause();
         lobbyLoader.interrupt();
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        lobbyLoader.interrupt();
+        super.onStop();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        lobbyLoader = new LobbyLoader(ipServer, portServer, lobbyList, this);
+        lobbyLoader = new LobbyLoader(ipServer, portServer, layout, this);
         lobbyLoader.start();
     }
 }

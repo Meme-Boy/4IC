@@ -16,13 +16,13 @@ import android.widget.Toast;
 
 public class Locale1v1 extends AppCompatActivity {
 
-    public TextView testo;
-    public GridLayout gridLayout;
+    private TextView testo;
+    private GridLayout gridLayout;
 
-    public int giocatore1 = 1, giocatore2 = 2;
-    public int turno;
+    private int giocatore1 = 1, giocatore2 = 2;
+    private int turno;
 
-    public Tris tris;
+    private Tris tris;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +51,14 @@ public class Locale1v1 extends AppCompatActivity {
         */
 
         turno = getIntent().getIntExtra("turno", 1);
-        if(turno == 1)
+        if(turno == giocatore1)
             testo.setText(getResources().getString(R.string.eTurno) + " Player1");
         else testo.setText(getResources().getString(R.string.eTurno) + " Player2");
     }
 
     public void checkVittoria(){
         if(tris.hasWin()){
-            if(turno == 2)
+            if(turno == giocatore2)
                 testo.setText(getResources().getString(R.string.haVinto)+" Player1!");
             else
                 testo.setText(getResources().getString(R.string.haVinto)+" Player2!");
@@ -104,14 +104,14 @@ public class Locale1v1 extends AppCompatActivity {
                 Button b = (Button)view;
                 b.setBackground(getResources().getDrawable(R.drawable.croce));
                 testo.setText(getResources().getString(R.string.eTurno) + " Player2");
-                turno = 2;
+                turno = giocatore2;
                 checkVittoria();
             } else if(turno == giocatore2) {
                 tris.setTurno(row, column, giocatore2);
                 Button b = (Button)view;
                 b.setBackground(getResources().getDrawable(R.drawable.cerchio));
                 testo.setText(getResources().getString(R.string.eTurno) + " Player1");
-                turno = 1;
+                turno = giocatore1;
                 checkVittoria();
             }
         } else

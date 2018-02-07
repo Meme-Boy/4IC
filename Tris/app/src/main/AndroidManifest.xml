@@ -14,12 +14,14 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Computer"></activity>
-        <activity android:name=".Locale1v1"></activity>
-        <activity android:name=".OnlineClasses.OnlineLobbyList"></activity>
+        <activity android:name=".Computer" />
+        <activity android:name=".Locale1v1" />
+        <activity android:name=".OnlineClasses.OnlineLobbyList" />
+        <activity android:name=".OnlineClasses.OnlineMatch"></activity>
     </application>
 
 </manifest>

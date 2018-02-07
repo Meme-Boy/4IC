@@ -1,28 +1,32 @@
 package tris.daminatoluca.it.tris.OnlineClasses;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
+import android.text.Layout;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InterruptedIOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.SocketAddress;
 import java.net.SocketException;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import tris.daminatoluca.it.tris.R;
 
 /**
  * Created by pigro on 01/02/2018.
  */
 
 public class LobbyLoader extends Thread {
-
-    private TextView text;
-
-    private boolean refresh;
 
     private Socket server;
     private int timeoutConnection;
@@ -31,47 +35,116 @@ public class LobbyLoader extends Thread {
 
     private Activity activity;
 
-    public LobbyLoader(String ipServer, int portServer, TextView text, Activity activity){
+    private LinearLayout layout;
+
+    private boolean refresh;
+
+    private boolean newLobby;
+    private String nomeLobby;
+
+    public LobbyLoader(String ipServer, int portServer, LinearLayout layout, Activity activity){
         this.ipServer = ipServer;
         this.portServer = portServer;
-        this.text = text;
+        this.layout = layout;
         this.activity = activity;
         timeoutConnection = 1000;
-        refresh = false;
+        refresh = true;
+        newLobby = false;
     }
 
     @Override
     public void run(){
         if(server == null || !server.isConnected()){
             System.out.println("Provo a connettermi!");
-            setText(text,"Provo a connettermi...");
             try {
                 server = new Socket();
                 server.connect(new InetSocketAddress(ipServer, portServer), timeoutConnection);
                 System.out.println("Connesso!");
-                setText(text,"Connesso!");
+                makeToast("Connesso al server!");
             } catch (IOException e) {
                 System.out.println("Errore Socket!");
-                setText(text,"Errore nel collegamento...");
                 makeToast("Server non raggiungibile");
                 e.printStackTrace();
                 interrupt();
             }
         }
         while(!isInterrupted()){
-            invia(server, "Lobbies");
-            String messaggio = ricevi(server);
-            setText(text, messaggio);
+            if(refresh) {
+                refresh = false;
+                invia(server, "Lobbies");
+                String listaLobby = ricevi(server);
+                creaBottoni(layout, listaLobby);
+            }
+            if(newLobby){
+                newLobby = false;
+                invia(server, "NewLobby");
+                invia(server, nomeLobby);
+                int portLobby = Integer.parseInt(ricevi(server));
+                String risposta = ricevi(server);
+                System.out.println(risposta);
+                enterLobby(ipServer, portLobby);
+            }
         }
     }
 
-    private void setText(final TextView textView, final String text){
+    private void creaBottoni(final LinearLayout layout, String listaLobby){
+        Scanner scanner = new Scanner(listaLobby);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                textView.setText(text);
+                layout.removeAllViews();
             }
         });
+        if(listaLobby.equals("")){
+            final TextView noLobby = new TextView(activity.getApplicationContext());
+            noLobby.setText("No match available");
+            noLobby.setTextColor(activity.getResources().getColor(android.R.color.black));
+            noLobby.setTextSize(20);
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    layout.addView(noLobby);
+                }
+            });
+        } else {
+            while (scanner.hasNextLine()) {
+                String riga = scanner.nextLine();
+                String nomeLobby = riga.substring(0, riga.indexOf(";"));
+                riga = riga.substring(riga.indexOf(";")+1);
+                final int portLobby = Integer.parseInt(riga.substring(0, riga.indexOf(";")));
+                riga = riga.substring(riga.indexOf(";")+1);
+                final int nPlayer = Integer.parseInt(riga.substring(0, riga.indexOf(";")));
+                riga = riga.substring(riga.indexOf(";")+1);
+                final int maxPlayer = Integer.parseInt(riga.substring(0, riga.indexOf(";")));
+                System.out.println(nomeLobby+" "+portLobby+" "+nPlayer+" "+maxPlayer);
+                RelativeLayout lobbyLayout = (RelativeLayout) View.inflate(activity.getApplicationContext(), R.layout.bottone_lobby, null);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, (int) (60 * activity.getApplicationContext().getResources().getDisplayMetrics().density));
+                lp.setMargins(0, (int) (5 * activity.getApplicationContext().getResources().getDisplayMetrics().density), 0, 0);
+                lobbyLayout.setLayoutParams(lp);
+                Button joinButton = (Button) lobbyLayout.getChildAt(0);
+                joinButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(nPlayer < maxPlayer)
+                            enterLobby(ipServer, portLobby);
+                        else
+                            makeToast("Lobby piena!");
+                    }
+                });
+                TextView nomeLobbyTextView = (TextView) lobbyLayout.getChildAt(1);
+                nomeLobbyTextView.setText(nomeLobby);
+                TextView nPlayerTextView = (TextView) lobbyLayout.getChildAt(2);
+                nPlayerTextView.setText(nPlayer+"/"+maxPlayer);
+                final RelativeLayout finalLobbyLayout = lobbyLayout;
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        layout.addView(finalLobbyLayout);
+                    }
+                });
+            }
+            scanner.close();
+        }
     }
 
     private void makeToast(final String text){
@@ -85,6 +158,19 @@ public class LobbyLoader extends Thread {
 
     public void refreshLobbies(){
         refresh = true;
+    }
+
+    public void createNewLobby(String nomeLobby){
+        newLobby = true;
+        this.nomeLobby = nomeLobby;
+    }
+
+    public void enterLobby(String ipLobby, int portLobby){
+        Intent intent = new Intent(activity, OnlineMatch.class);
+        intent.putExtra("ipLobby", ipLobby);
+        intent.putExtra("portLobby", portLobby);
+        activity.startActivity(intent);
+        LobbyLoader.this.interrupt();
     }
 
     private void invia(Socket socket, String data){

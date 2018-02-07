@@ -13,13 +13,13 @@ import android.widget.Toast;
 
 public class Computer extends AppCompatActivity {
 
-    public TextView testo;
-    public GridLayout gridLayout;
+    private TextView testo;
+    private GridLayout gridLayout;
 
-    public int giocatore = 1, computer = 2;
-    public int turno;
+    private int giocatore = 1, computer = 2;
+    private int turno;
 
-    public Tris tris;
+    private Tris tris;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class Computer extends AppCompatActivity {
         */
 
         turno = getIntent().getIntExtra("turno", 1);
-        if(turno == 1)
+        if(turno == giocatore)
             testo.setText(getResources().getString(R.string.eTurno) + " Player1");
         else testo.setText(getResources().getString(R.string.eTurno) + " Computer");
         if(turno == computer)
@@ -58,7 +58,7 @@ public class Computer extends AppCompatActivity {
 
     public void checkVittoria(){
         if(tris.hasWin()){
-            if(turno == 2)
+            if(turno == computer)
                 testo.setText(getResources().getString(R.string.haVinto)+" Player1!");
             else
                 testo.setText(getResources().getString(R.string.haVinto)+" Computer!");
@@ -66,7 +66,7 @@ public class Computer extends AppCompatActivity {
         } else if(tris.getLiberi() <= 0){
             testo.setText(getResources().getString(R.string.pareggio));
             turno = 0;
-        } else if(turno == 2)
+        } else if(turno == computer)
             mossaComputer();
     }
 
@@ -93,13 +93,13 @@ public class Computer extends AppCompatActivity {
         id = id.substring(id.length()-3);
         row = Integer.parseInt(id.charAt(1)+"");
         column = Integer.parseInt(id.charAt(2)+"");
-        if(turno == 1) {
+        if(turno == giocatore) {
             if (tris.isLibero(row, column)) {
                 tris.setTurno(row, column, giocatore);
                 Button b = (Button)view;
                 b.setBackground(getResources().getDrawable(R.drawable.croce));
                 testo.setText(getResources().getString(R.string.eTurno) + " Computer");
-                turno = 2;
+                turno = computer;
                 checkVittoria();
             } else
                 Toast.makeText(this, getResources().getString(R.string.nonLibera), Toast.LENGTH_SHORT).show();
@@ -123,7 +123,7 @@ public class Computer extends AppCompatActivity {
                                 Button b = (Button) findViewById(getResources().getIdentifier("b"+finalI+finalJ, "id", getPackageName()));
                                 b.setBackground(getResources().getDrawable(R.drawable.cerchio));
                                 testo.setText(getResources().getString(R.string.eTurno)+" Player1");
-                                turno = 1;
+                                turno = giocatore;
                                 checkVittoria();
                             }
                         }, 750);
