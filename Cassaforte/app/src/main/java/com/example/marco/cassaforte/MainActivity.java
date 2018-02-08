@@ -11,12 +11,18 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         TextView psw=findViewById(R.id.psw);
+
+        if(savedInstanceState != null) {
+            psw.setText(savedInstanceState.getString("psw"));
+        }
 
         final String PASSWORD="1425";
 
@@ -57,10 +63,18 @@ public class MainActivity extends AppCompatActivity {
 
         b.setOnClickListener((View view) -> {
             psw.setText(psw.getText().toString()+b.getText());
-            if(psw.getText().toString().equals(p))
+            if(psw.getText().toString().equals(p)) {
                 psw.setTextColor(getResources().getColor(R.color.green));
+            }
             else
                 psw.setTextColor(getResources().getColor(R.color.red));
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        TextView textView = findViewById(R.id.psw);
+        savedInstanceState.putString("psw", textView.getText().toString());
     }
 }
