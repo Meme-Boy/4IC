@@ -1,96 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.miche.tic_tac_toe.MainActivity">
+    android:layout_marginHorizontal="45dp"
+    android:layout_marginVertical="80dp"
+    tools:context="com.example.matteo.tris.MainActivity">
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/darkGray">
+
+        <TableRow>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b1"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/uno"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b2"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/due"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b3"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/tre"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
         </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+        <TableRow>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b4"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/quattro"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b5"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/cinque"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b6"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/sei"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
         </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+        <TableRow>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b7"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/sette"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b8"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/otto"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
+
             <Button
-                style="?android:attr/buttonBarStyle"
-                android:id="@+id/b9"
-                android:layout_margin="10dp"
-                android:textSize="60sp"
-                android:text="">
-            </Button>
+                android:id="@+id/nove"
+                android:backgroundTint="@color/white"
+                android:text=""
+                android:textColor="@color/font"
+                android:textSize="60dp"
+                android:onClick="clickListener"/>
         </TableRow>
-        <TextView
-            android:id="@+id/winLose"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:textSize="30sp"
-            android:layout_margin="10dp"
-            android:layout_gravity="fill_horizontal"
-            android:text="">
-        </TextView>
+
+
     </TableLayout>
-</android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
