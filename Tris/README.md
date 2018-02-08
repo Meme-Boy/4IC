@@ -9,7 +9,7 @@ Creato utilizzando Android Studio v3.0.1
 ### 1 vs 1:
 > Sfidi una persona reale che si trova vicino a te. Che vinca il migliore!
 ### Online:
-> Sfidi una persona online che ha voglia di giocare. Che vinca il migliore! (Work in progress)
+> Sfidi una persona online che ha voglia di giocare. Che vinca il migliore! (Beta)
 
 <br />
 
