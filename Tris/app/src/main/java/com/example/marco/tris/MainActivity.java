@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickListener(View view){
 
         Button clicked = (Button)view;
-        short sign;
+        char sign;
 
         if (j % 2 == 0) {
             clicked.setText("X");
@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        if(j<9 && Tris.verificaVittoria(i)) {
+        if((j<9 || j==9) && Tris.verificaVittoria(i)) {
             startActivity(i);
             finish();
         }
 
-        if(j==9) {
+        if(j==9 && !Tris.verificaVittoria(i)) {
             Tris.pareggio(i);
             startActivity(i);
             finish();

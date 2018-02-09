@@ -5,10 +5,10 @@ import android.view.View;
 
 public class Tris {
 
-    static short[][] btn;
+    static char[][] btn;
     static boolean vittoria;
 
-    public static void set(View view, short sign){
+    public static void set(View view, char sign){
         switch (view.getId()) {
             case R.id.uno:
                 btn[0][0] = sign;
@@ -46,37 +46,37 @@ public class Tris {
         vittoria=false;
 
         if(btn[0][0]==btn[0][1] && btn[0][0]==btn[0][2] && btn[0][0]!=' ') {
-            i.putExtra("winner", btn[0][0]);
+            i.putExtra("vittoria", btn[0][0]);
             vittoria=true;
         }
         if(btn[1][0]==btn[1][1] && btn[1][0]==btn[1][2] && btn[1][0]!=' ') {
-            i.putExtra("winner", btn[1][0]);
+            i.putExtra("vittoria", btn[1][0]);
             vittoria=true;
         }
         if(btn[2][0]==btn[2][1] && btn[2][0]==btn[2][2] && btn[2][0]!=' ') {
-            i.putExtra("winner", btn[2][0]);
+            i.putExtra("vittoria", btn[2][0]);
             vittoria=true;
         }
 
         if(btn[0][0]==btn[1][0] && btn[0][0]==btn[2][0] && btn[0][0]!=' ') {
-            i.putExtra("winner", btn[0][0]);
+            i.putExtra("vittoria", btn[0][0]);
             vittoria=true;
         }
         if(btn[0][1]==btn[1][1] && btn[0][1]==btn[2][1] && btn[0][1]!=' ') {
-            i.putExtra("winner", btn[0][1]);
+            i.putExtra("vittoria", btn[0][1]);
             vittoria=true;
         }
         if(btn[0][2]==btn[1][2] && btn[0][2]==btn[2][2] && btn[0][2]!=' ') {
-            i.putExtra("winner",btn[0][2]);
+            i.putExtra("vittoria",btn[0][2]);
             vittoria=true;
         }
 
         if(btn[0][0]==btn[1][1] && btn[0][0]==btn[2][2] && btn[0][0]!=' ') {
-            i.putExtra("winner",btn[0][0]);
+            i.putExtra("vittoria",btn[0][0]);
             vittoria=true;
         }
         if(btn[0][2]==btn[1][1] && btn[0][2]==btn[2][0] && btn[0][2]!=' ') {
-            i.putExtra("winner",btn[0][2]);
+            i.putExtra("vittoria",btn[0][2]);
             vittoria=true;
         }
 
@@ -85,11 +85,11 @@ public class Tris {
     }
 
     public static void pareggio(Intent i){
-        i.putExtra("winner",'n');
+        i.putExtra("vittoria",'n');
     }
 
     public static void restart(){
-        btn= new short[][] { {' ',' ',' '}, {' ',' ',' '}, {' ',' ',' '} };
+        btn= new char[][] { {' ',' ',' '}, {' ',' ',' '}, {' ',' ',' '} };
         vittoria=false;
     }
 }

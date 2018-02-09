@@ -23,7 +23,7 @@ public class ActivityTwo extends AppCompatActivity{
             finish();
         });
 
-        if(getIntent().getCharExtra("winner",' ')=='n') text.setText("Pareggio");
-        else text.setText("Ha Vinto il Giocatore "+getIntent().getCharExtra("winner",' '));
+        if(getIntent().getCharExtra("vittoria",' ')=='n') text.setText("Pareggio");
+        else text.setText("Ha Vinto il Giocatore "+getIntent().getCharExtra("vittoria",' '));
     }
 }
