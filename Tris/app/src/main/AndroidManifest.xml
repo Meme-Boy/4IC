@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.studente.tris">
+    package="com.example.marco.tris">
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivityTwo" />
+        <activity android:name=".Tris" />
+        <activity android:name=".HumanVsComputer" />
+        <activity android:name=".PlayerVsPlayer"></activity>
     </application>
 
 </manifest>
