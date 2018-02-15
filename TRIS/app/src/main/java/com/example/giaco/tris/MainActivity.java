@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity{
             integerBoard[0] = savedInstanceState.getIntArray("integerBoard_0");
             integerBoard[1] = savedInstanceState.getIntArray("integerBoard_1");
             integerBoard[2] = savedInstanceState.getIntArray("integerBoard_2");
-            rebuild();
             count = savedInstanceState.getInt("count");
+            rebuild();
         }else{
             GradientDrawable gd = getNewGradientDrawable();
             gd.setColor(getResources().getColor(R.color.defaultColor));
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity{
         if(booleanBoard[row][column]){
             if(firstTime){
                 int color = randomColor();
-                if(color == player_1)
+                while(color == player_1)
                     color = randomColor();
                 if(firstPlayer){
                     player_1 = color;
