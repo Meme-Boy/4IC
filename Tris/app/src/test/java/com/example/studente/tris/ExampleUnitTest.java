@@ -1,4 +1,4 @@
-package com.example.marco.tris;
+package com.example.studente.tris;
 
 import org.junit.Test;
 
