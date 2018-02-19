@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Tris5</string>
+    <string name="draw">DRAW</string>
+    <string name="o_wins">O PLAYER WINS</string>
+    <string name="x_wins">X PLAYER WINS</string>
+    <string name="restart">Do you want to start again?</string>
+    <string name="mode">CHOOSE MODE</string>
+    <string name="sure">Are you sure?</string>
+    <string name="exit">EXIT</string>
+    <string name="under">Under construction</string>
+    <string name="soon">COMING SOON</string>
+    <string name="easy"><![CDATA[Tris5 -> Easy]]></string>
+    <string name="home"><![CDATA[Tris5 -> Home]]></string>
+    <string name="online"><![CDATA[Tris5 -> Online]]></string>
+    <string name="difficult"><![CDATA[Tris5 -> Difficult]]></string>
+</resources>
