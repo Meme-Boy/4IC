@@ -11,31 +11,32 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         TextView psw=findViewById(R.id.psw);
+        final String PASSWORD="1425";
 
         if(savedInstanceState != null) {
             psw.setText(savedInstanceState.getString("psw"));
+            if(psw.getText().toString().equals(PASSWORD)){
+                psw.setTextColor(getResources().getColor(R.color.green));
+            } else
+                psw.setTextColor(getResources().getColor(R.color.red));
         }
 
-        final String PASSWORD="1425";
-
-        verificaPassword(findViewById(R.id.uno),PASSWORD);
-        verificaPassword(findViewById(R.id.due),PASSWORD);
-        verificaPassword(findViewById(R.id.tre),PASSWORD);
-        verificaPassword(findViewById(R.id.quattro),PASSWORD);
-        verificaPassword(findViewById(R.id.cinque),PASSWORD);
-        verificaPassword(findViewById(R.id.sei),PASSWORD);
-        verificaPassword(findViewById(R.id.sette),PASSWORD);
-        verificaPassword(findViewById(R.id.otto),PASSWORD);
-        verificaPassword(findViewById(R.id.nove),PASSWORD);
-        verificaPassword(findViewById(R.id.zero),PASSWORD);
+        checkPassword(findViewById(R.id.uno),PASSWORD);
+        checkPassword(findViewById(R.id.due),PASSWORD);
+        checkPassword(findViewById(R.id.tre),PASSWORD);
+        checkPassword(findViewById(R.id.quattro),PASSWORD);
+        checkPassword(findViewById(R.id.cinque),PASSWORD);
+        checkPassword(findViewById(R.id.sei),PASSWORD);
+        checkPassword(findViewById(R.id.sette),PASSWORD);
+        checkPassword(findViewById(R.id.otto),PASSWORD);
+        checkPassword(findViewById(R.id.nove),PASSWORD);
+        checkPassword(findViewById(R.id.zero),PASSWORD);
 
         Intent i = new Intent(this,ActivityTwo.class);
 
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void verificaPassword(Button b,String p){
+    public void checkPassword(Button b,String p){
 
         TextView psw=findViewById(R.id.psw);
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
         super.onSaveInstanceState(savedInstanceState);
-        TextView textView = findViewById(R.id.psw);
-        savedInstanceState.putString("psw", textView.getText().toString());
+        TextView psw = findViewById(R.id.psw);
+        savedInstanceState.putString("psw", psw.getText().toString());
     }
 }
