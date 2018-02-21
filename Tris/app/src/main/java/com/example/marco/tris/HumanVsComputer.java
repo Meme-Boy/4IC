@@ -36,9 +36,8 @@ public class HumanVsComputer extends AppCompatActivity {
             String moved = "button" + String.valueOf(t.moveComputerRandom());
             Button pressed = findViewById(getResources().getIdentifier(moved, "id", getPackageName()));
             pressed.setText("O");
-        }
-        if(j!=9)
             j++;
+        }
 
         if((j<9 || j==9) && t.checkVictory(i)) {
             startActivity(i);

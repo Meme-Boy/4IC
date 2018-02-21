@@ -18,8 +18,6 @@ public class ActivityTwo extends AppCompatActivity{
         Button leave=findViewById(R.id.b1);
 
         restart.setOnClickListener((View view) -> {
-            Tris t=new Tris();
-            t.restart();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             finish();
