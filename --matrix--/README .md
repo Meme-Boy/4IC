@@ -7,4 +7,4 @@ So we can avoid seeing?
 So we can avoid each other?
 So we can avoid truth.  
 ```
-[CONTROLL YOUR SELF](https://www.whoismrrobot.com/endgame/)
+[CONTROLL YOURSELF](https://www.whoismrrobot.com/endgame/)
