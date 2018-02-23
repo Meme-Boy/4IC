@@ -1,4 +1,4 @@
-package com.example.studente.tris;
+package com.example.federico.tris;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class PvP extends AppCompatActivity implements View.OnClickListener{
 
     public int[][] grid;
     public int current;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.pvp_layout);
 
         //matrice per controllare la partita
         grid = new int[3][3];
@@ -29,42 +29,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         current = 0;
 
         button1 = (Button) findViewById(R.id.button1);
-        button1.setOnClickListener(this);
-        button1.setText("");
-        button1.setClickable(true);
+            button1.setOnClickListener(this);
+            button1.setText("");
+            button1.setClickable(true);
         button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(this);
-        button2.setText("");
-        button2.setClickable(true);
+            button2.setOnClickListener(this);
+            button2.setText("");
+            button2.setClickable(true);
         button3 = (Button) findViewById(R.id.button3);
-        button3.setOnClickListener(this);
-        button3.setText("");
-        button3.setClickable(true);
+            button3.setOnClickListener(this);
+            button3.setText("");
+            button3.setClickable(true);
         button4 = (Button) findViewById(R.id.button4);
-        button4.setOnClickListener(this);
-        button4.setText("");
-        button4.setClickable(true);
+            button4.setOnClickListener(this);
+            button4.setText("");
+            button4.setClickable(true);
         button5 = (Button) findViewById(R.id.button5);
-        button5.setOnClickListener(this);
-        button5.setText("");
-        button5.setClickable(true);
+            button5.setOnClickListener(this);
+            button5.setText("");
+            button5.setClickable(true);
         button6 = (Button) findViewById(R.id.button6);
-        button6.setOnClickListener(this);
-        button6.setText("");
-        button6.setClickable(true);
+            button6.setOnClickListener(this);
+            button6.setText("");
+            button6.setClickable(true);
         button7 = (Button) findViewById(R.id.button7);
-        button7.setOnClickListener(this);
-        button7.setText("");
-        button7.setClickable(true);
+            button7.setOnClickListener(this);
+            button7.setText("");
+            button7.setClickable(true);
         button8 = (Button) findViewById(R.id.button8);
-        button8.setOnClickListener(this);
-        button8.setText("");
-        button8.setClickable(true);
+            button8.setOnClickListener(this);
+            button8.setText("");
+            button8.setClickable(true);
         button9 = (Button) findViewById(R.id.button9);
-        button9.setOnClickListener(this);
-        button9.setText("");
-        button9.setClickable(true);
+            button9.setOnClickListener(this);
+            button9.setText("");
+            button9.setClickable(true);
         reset = (Button) findViewById(R.id.reset);
+            reset.setOnClickListener(this);
 
         showTurn = (TextView) findViewById(R.id.textView);
         showTurn.setText(turn[current]);
@@ -76,14 +77,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //quando viene cliccato un bottone
-    //cambia il background del bottone a seconda del turno
-    //fai il controllo se qualcuno ha vinto
-
     @Override
     public void onClick(View v){
 
         switch (v.getId()){
+
+            //resetta il gioco (la MainActivity) quando viene premuto il pulsante New Game
+            case R.id.reset: reset(); break;
 
             case R.id.button1:{
                 if(current == 0){
@@ -257,8 +257,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             } break;
 
-            //resetta il gioco (la MainActivity) quando viene premuto il pulsante New Game
-            case R.id.reset : reset();
             default: break;
         }
     }
@@ -304,9 +302,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return gameOver;
     }
 
+    //torna a MainActivity
     public void reset(){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
-
