@@ -1,69 +1,56 @@
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
-import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.*;
 
-
-public class Bus extends Thread{
-
-    private Random rnd = new Random();
-    private Semaphore semaforo;
-    private final int POSTI=10;
-    private final int fermate = 5;
-    private int fermataControllore;
-
-    public Bus(){
-        semaforo = new Semaphore(POSTI);
-    }
-
-    @Override
-    public void run(){
-        fermataControllore = rnd.nextInt(fermate-1)+1;
-        for(int i=0; i<fermate; i++){
-
-            System.out.println("FERMATA "+(i+1));
-
-            //Passengers going down (2-6)
-            int randomPass = rnd.nextInt((POSTI/2)+2);
-            for(int j=0; j<randomPass; j++){
-                if(semaforo.availablePermits() < POSTI) {
-                    System.out.println("\tSceso passeggero " + (POSTI - semaforo.availablePermits()));
-                    semaforo.release();
-                }
-            }
-
-            //If it is not the last stop, passengers go up (2-6)
-            if(i+1 < fermate){
-                randomPass = rnd.nextInt((POSTI/2)+2);
-                for(int j=0; j<randomPass; j++){
-                    try {
-                        semaforo.acquire();
-                        System.out.println("\tSalito passeggero " + (POSTI-semaforo.availablePermits()));
-                    } catch (InterruptedException ex) {}
-                }
-            }
-
-            //Last stop
-            if(i+1==fermate){
-                while(semaforo.availablePermits() != 10){
-                    System.out.println("\tSceso passeggero " + (POSTI - semaforo.availablePermits()));
-                    semaforo.release();
-                }
-                currentThread().interrupt();
-            }
-
-            //Stop where the controller goes up
-            if(i+1 == fermataControllore){
-                Thread controllore = new Thread(new Controllore(semaforo));
-                controllore.start();
-                try {
-                    controllore.join();
-                } catch (InterruptedException e) {}
-            }
-
-            //Attesa fino alla fermata successiva
-            try {
-                TimeUnit.SECONDS.sleep(10);
-            } catch (InterruptedException ex) {}
+public class Bus{
+	public static final int NUMERO_POSTI = 10;
+	private Lock sezioneCritica;
+	private Semaphore postiLiberi;
+	private Semaphore postiOccupati;
+	private Passeggero[] passeggeri;
+	private int stop;
+	private String nome;
+	
+	public Bus(String nome){
+		postiLiberi = new Semaphore(NUMERO_POSTI);
+		postiOccupati = new Semaphore(0);
+		sezioneCritica = new ReentrantLock();
+		passeggeri = new Passeggero[NUMERO_POSTI];
+		int stop = -1;
+		this.nome = nome;
+	}
+	public int getStop(){
+		return stop;
+	}
+	public boolean sale(Passeggero passeggero){
+		int i;
+	    boolean salito=false;
+		sezioneCritica.lock();
+		if(postiLiberi.tryAcquire()){
+		    salito=true;
+		    passeggero.setBus(this);
+            for(i=0; passeggeri[i] != null; i++);
+            passeggeri[i] = passeggero;
+			postiOccupati.release();
         }
-    }
+        sezioneCritica.unlock();
+		return salito;
+	}
+	public void scende(Passeggero passeggero){
+		int i;
+		sezioneCritica.lock();
+			postiOccupati.tryAcquire();
+			for(i=0; passeggeri[i].getName()!=passeggero.getName(); i++);
+			passeggeri[i] = null;
+			postiLiberi.release();
+			passeggero.setBus(null);
+		sezioneCritica.unlock();
+	}
+	
+	public void fermata(){
+		stopNumber++;
+		for(int i=0; i<NUMERO_POSTI; i++){
+			if(passeggeri[i] !=  null) passeggeri[i].interrupt();
+		}
+	}
 }
